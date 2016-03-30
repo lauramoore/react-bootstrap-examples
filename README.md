@@ -11,7 +11,7 @@ These are the things that keep me up at night...
 
 
 
-Many thanks to the [react-bootstrap-starter](https://www.npmjs.com/package/react-bootstrap-starter) project by @jobleasonjr  for a quick scaffold project to start from
+Many thanks to the [react-bootstrap-starter](https://www.npmjs.com/package/react-bootstrap-starter) project by @jogleasonjr for a quick scaffold project to start from
 
 Run this project with:
 
