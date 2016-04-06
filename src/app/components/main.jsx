@@ -8,82 +8,96 @@ var Main = React.createClass({
     render: function () {
         return (
                 <Grid fluid>
-                <Navigation projectName="react-bootstrap-starter" />
                 <Row>
-                <Col md={4}>
-                <p>Row 1:  Nesting of Grid -> Row -> Column</p>
+                <Col sm={4} className="level-one">
+                <p>Simple Example. A Row with 3 Columns</p>
                 </Col>
-                <Col md={4}>
-                <p>Row 1:  At MD width and larger these space to 3 columns </p>
+                <Col sm={4} className="level-one">
+                <p>At tablet and larger these are side by side </p>
                 </Col>
-                <Col md={4}>
-                <p>Row 1:  Less than MD these wrap to a single column </p>
+                <Col sm={4} className="level-one">
+                <p>At phone view ports they are stacked </p>
                 </Col>
                 </Row>
 
-                <Row>
-                <Col md={4} mdOffset={4}>
+                 <Row>
+                 <Col md={4} mdOffset={4} className="level-one">
                   <Row>
-                   <Col xs={12}>
-                    <p> a Row->Col -> Row -Col</p>
-                    <p> at &gt; MD  this sits in the middle of the page</p>
-                    <p> at &lt; MD this spans the whole row </p>
-                    <p> add at least an xs=12 or text will lose it's left padding </p>
+                   <Col className="level-two">
+                    <p>An attempt to fix a max width by wrapping row-column inside column. 
+                       But this text loses padding at left margin and touches outer column
+                       because the inner column has been given no widths 
+                    </p>
                    </Col>
                    </Row>
                   </Col>
                 </Row>
+
                 <Row>
-                 <Col md={4} mdOffset={4}>
+                <Col md={4} mdOffset={4} className="level-one">
                   <Row>
-                   <Col>
-                    <p>Quick demo of the problem mentioned above when Internal Col gets no width specified</p>
+                   <Col xs={12} className="level-two">
+                    <p> This is same construct of row-column-row-column except inner column has width specified</p>
+                    <p> at tablet and greater this sits mid page with wide margins</p>
+                    <p> at phone widths this spans the whole page width </p>
                    </Col>
                    </Row>
                   </Col>
                 </Row>
+                
                 <Row>
-                <Col md={4} mdOffset={4}>
-                  <div>
-                   <p> a Row->Col -> div</p>
-                   <p> at &gt; MD  this sits in the middle of the page
-                       at &lt; MD this spans the whole row </p>
-                   <p> This one maintains the correct column spacing at each</p>
+                <Col md={4} mdOffset={4} className="level-one">
+                  <div className="level-two">
+                   <p> Instead of Row-Column this inner level is just a div</p>
+                   <p> Same as before, at tablet width it's one column in the middle and one wide at phone</p>
+                   <p> Left padding is maintained even without any bootstrap width on level two</p>
                    <p>  
-                   These children never space out, always stacked in the column
-                   However the text gets more room when column shifts to 12
+                   however the background and text cut off at the same point, where with a column the
+                   background spreads out into the margin around the text
                    </p>
                    </div>
                 </Col>
                 </Row>
 
                 <Row>
-                <Col md={4} mdOffset={4}>
+                <Col md={4} mdOffset={4} className="level-one">
                   <Row>
-                   <Col md={6}>
-                     <p>But what if I want these p to align sideways too?</p>
+                   <Col md={6} className="level-two">
+                     <p>The reason to nest row-column is that it allows columns to</p>
                    </Col>
-                   <Col md={6}>
-                     <p>Row -> Col -> Row -> Col</p>
+                   <Col md={6} className="level-two">
+                     <p>spread outside by side when screen is large enough to support it</p>
                    </Col>
                    </Row>
                 </Col>
                 </Row>
+                
+                <Row>
+                <Col md={4} mdOffset={4} className="level-one">
+                  <div className="level-two">
+                     <p>Two divs inside the column will always stay stacked</p>
+                   </div>
+                   <div className="level-two">
+                     <p>unless you create your own styles to float</p>
+                   </div>
+                </Col>
+                </Row>
 
                 <Row>
-                <Col md={4} mdOffset={4}>
-                  <div>
+                <Col md={4} mdOffset={4} className="level-one">
+                  <div className="level-two">
                   <Row>
-                   <Col md={6}>
-                     <p>And for a multi row component</p>
+                   <Col md={6} className="level-three">
+                     <p>The other reason to put rows inside of a column</p>
                    </Col>
-                   <Col md={6}>
-                     <p>Row -> Col -> div -> Row -> Col...</p>
+                   <Col md={6} className="level-three">
+                     <p>is precise control over different alignments on top of other backgrounds</p>
                    </Col>
                    </Row>
                    <Row>
-                   <Col md={8} mdOffset={2}>
-                     <p>The extra div does not make a difference but keeps React happy</p>
+                   <Col md={8} mdOffset={2} className="level-three">
+                     <p>There is an unstyled div, that keeps React happy for a component But
+                     does not affect visual layout</p>
                    </Col>
                    </Row>
                   </div>
